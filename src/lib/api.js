@@ -1,8 +1,15 @@
 import axios from 'axios';
 
-const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+console.log("API:", import.meta.env.VITE_API_URL);
 
-const api = axios.create({ baseURL: API_BASE + '/api' });
+
+const API_BASE = import.meta.env.VITE_API_URL;
+
+console.log("API:", API_BASE);
+
+
+
+const api = axios.create({ baseURL: API_BASE });
 
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem('token');
