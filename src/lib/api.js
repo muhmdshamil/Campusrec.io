@@ -2,11 +2,11 @@ import axios from 'axios';
 
 console.log("API:", import.meta.env.VITE_API_URL  );
 
-// const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:5000";
+const API_BASE = import.meta.env.VITE_API_URL;
 
 
 
-const API_BASE = "http://localhost:3005/api";
+// const API_BASE = "http://localhost:3005/api";
 
 console.log("API:", API_BASE);
 
