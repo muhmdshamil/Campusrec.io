@@ -11,11 +11,9 @@ export default function Auth({ mode: initialMode = 'login' }) {
 
   const { setToken, setUser } = useAuth();
   const [name, setName] = useState('');
-  const [companyName, setCompanyName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-  const [role, setRole] = useState('STUDENT');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -37,7 +35,7 @@ export default function Auth({ mode: initialMode = 'login' }) {
         const to = r === 'COMPANY' ? '/company' : r === 'ADMIN' ? '/admin' : '/student';
         window.location.href = to;
       } else {
-        const body = { name, email, password, role, companyName: role==='COMPANY' ? (companyName || name) : undefined };
+        const body = { name, email, password, role: 'STUDENT' };
         await api.post('/auth/register', body);
         // Go to login after successful registration
         window.location.href = '/login';
@@ -81,21 +79,7 @@ export default function Auth({ mode: initialMode = 'login' }) {
                     <span className="text-sm text-gray-700">Full name</span>
                     <input id="name" className="border rounded-md px-3 py-2" placeholder="Full name" value={name} onChange={e=>setName(e.target.value)} required />
                   </label>
-                  <label className="flex flex-col gap-1">
-                    <span className="text-sm text-gray-700">Role</span>
-                    <select id="role" className="border rounded-md px-3 py-2" value={role} onChange={e=>setRole(e.target.value)}>
-                      <option value="STUDENT">Student</option>
-                      <option value="COMPANY">Company</option>
-                      <option value="ADMIN">Admin</option>
-                    </select>
-                  </label>
                 </div>
-                {role==='COMPANY' && (
-                  <label className="flex flex-col gap-1">
-                    <span className="text-sm text-gray-700">Company name</span>
-                    <input id="companyName" className="w-full border rounded-md px-3 py-2" placeholder="Company name" value={companyName} onChange={e=>setCompanyName(e.target.value)} />
-                  </label>
-                )}
               </>
             )}
             <label className="flex flex-col gap-1">

@@ -10,6 +10,8 @@ import Profile from './pages/student/Profile.jsx';
 import CompanyDashboard from './pages/company/Dashboard.jsx';
 import Applications from './pages/company/Applications.jsx';
 import AdminOverview from './pages/admin/Overview.jsx';
+import CompanyProfile from './pages/company/Profile.jsx';
+import AdminProfile from './pages/admin/Profile.jsx';
 
 export default function App(){
   return (
@@ -23,7 +25,9 @@ export default function App(){
       <Route path="/student/profile" element={<StudentLayout><Profile/></StudentLayout>} />
       <Route path="/company" element={<CompanyLayout><CompanyDashboard/></CompanyLayout>} />
       <Route path="/company/applications" element={<CompanyLayout><Applications/></CompanyLayout>} />
+      <Route path="/company/profile" element={<CompanyLayout><CompanyProfile/></CompanyLayout>} />
       <Route path="/admin" element={<AdminLayout><AdminOverview/></AdminLayout>} />
+      <Route path="/admin/profile" element={<AdminLayout><AdminProfile/></AdminLayout>} />
     </Routes>
   );
 }

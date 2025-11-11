@@ -15,6 +15,7 @@ export default function CompanyNav(){
         <nav className="hidden md:flex items-center gap-6">
           <NavLink to="/company" className={({isActive})=> isActive? 'text-brand-600 font-medium' : 'hover:text-brand-600'}>Dashboard</NavLink>
           <NavLink to="/company/applications" className={({isActive})=> isActive? 'text-brand-600 font-medium' : 'hover:text-brand-600'}>Applications</NavLink>
+          <NavLink to="/company/profile" className={({isActive})=> isActive? 'text-brand-600 font-medium' : 'hover:text-brand-600'}>Profile</NavLink>
           <button onClick={onLogout} className="text-white bg-gray-900 px-4 py-2">Logout</button>
         </nav>
         <button
@@ -39,6 +40,7 @@ export default function CompanyNav(){
           <nav className="container max-w-[var(--container)] mx-auto px-4 py-4 flex flex-col gap-4">
             <NavLink to="/company" className={({isActive})=> isActive? 'font-medium text-brand-700' : 'hover:text-brand-700'} onClick={()=>setOpen(false)}>Dashboard</NavLink>
             <NavLink to="/company/applications" className={({isActive})=> isActive? 'font-medium text-brand-700' : 'hover:text-brand-700'} onClick={()=>setOpen(false)}>Applications</NavLink>
+            <NavLink to="/company/profile" className={({isActive})=> isActive? 'font-medium text-brand-700' : 'hover:text-brand-700'} onClick={()=>setOpen(false)}>Profile</NavLink>
             <button onClick={()=>{ setOpen(false); onLogout(); }} className="mt-2 bg-brand-600 text-white px-4 py-2 rounded">Logout</button>
           </nav>
         </div>

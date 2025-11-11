@@ -147,9 +147,8 @@ export default function Profile() {
     }
 
     try {
-      const formDataToSend = new FormData();
-      
       if (activeTab === 'profile') {
+        const formDataToSend = new FormData();
         formDataToSend.append('name', formData.name);
         formDataToSend.append('phone', formData.phone);
         formDataToSend.append('location', formData.location);
@@ -167,14 +166,15 @@ export default function Profile() {
         if (formData.resume) {
           formDataToSend.append('resume', formData.resume);
         }
+        await api.put('/student/profile', formDataToSend, {
+          headers: { 'Content-Type': 'multipart/form-data' }
+        });
       } else if (activeTab === 'password') {
-        formDataToSend.append('currentPassword', formData.currentPassword);
-        formDataToSend.append('newPassword', formData.newPassword);
+        await api.put('/auth/update', {
+          currentPassword: formData.currentPassword,
+          newPassword: formData.newPassword,
+        });
       }
-
-      await api.put('/student/profile', formDataToSend, {
-        headers: { 'Content-Type': 'multipart/form-data' }
-      });
 
       setIsEditing(false);
       

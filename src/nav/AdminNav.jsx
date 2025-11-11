@@ -14,6 +14,7 @@ export default function AdminNav(){
         <Link to="/admin" className="font-bold text-xl">Campus • Admin</Link>
         <nav className="hidden md:flex items-center gap-6">
           <NavLink to="/admin" className={({isActive})=> isActive? 'text-brand-600 font-medium' : 'hover:text-brand-600'}>Overview</NavLink>
+          <NavLink to="/admin/profile" className={({isActive})=> isActive? 'text-brand-600 font-medium' : 'hover:text-brand-600'}>Profile</NavLink>
           <button onClick={onLogout} className="text-white bg-gray-900 px-4 py-2">Logout</button>
         </nav>
         <button
@@ -39,6 +40,7 @@ export default function AdminNav(){
             <NavLink to="/admin" className={({isActive})=> isActive? 'font-medium text-brand-700' : 'hover:text-brand-700'} onClick={()=>setOpen(false)}>Overview</NavLink>
             <NavLink to="/admin/users" className={({isActive})=> isActive? 'font-medium text-brand-700' : 'hover:text-brand-700'} onClick={()=>setOpen(false)}>Users</NavLink>
             <NavLink to="/admin/jobs" className={({isActive})=> isActive? 'font-medium text-brand-700' : 'hover:text-brand-700'} onClick={()=>setOpen(false)}>Jobs</NavLink>
+            <NavLink to="/admin/profile" className={({isActive})=> isActive? 'font-medium text-brand-700' : 'hover:text-brand-700'} onClick={()=>setOpen(false)}>Profile</NavLink>
             <button onClick={()=>{ setOpen(false); onLogout(); }} className="mt-2 bg-brand-600 text-white px-4 py-2 rounded">Logout</button>
           </nav>
         </div>
